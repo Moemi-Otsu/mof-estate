@@ -2,6 +2,7 @@ class EstatesController < ApplicationController
 
   def index
     @estates = Estate.all
+    @stations = Station.all
   end
 
   def show

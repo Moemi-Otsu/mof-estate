@@ -18,3 +18,19 @@
     <td>削除</td>
   </tr>
 </table>
+
+<% @station.each do |station| %>
+<h2>最寄駅</h2>
+<table>
+  <tr>
+    <th>路線名</th>
+    <th>駅名</th>
+    <th>徒歩分数</th>
+  </tr>
+  <tr>
+    <td><%= station.route_name %></td>
+    <td><%= station.station_name %></td>
+    <td>徒歩<%= station.walking_minutes %>分</td>
+  </tr>
+</table>
+<% end %>
