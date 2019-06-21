@@ -1,0 +1,22 @@
+<h1>物件一覧</h1>
+<table>
+  <tr>
+    <th>物件名</th>
+    <th>賃料</th>
+    <th>住所</th>
+    <th>築年数</th>
+    <th>備考</th>
+  </tr>
+  <% @estates.each do |estate| %>
+  <tr>
+    <td><%= estate.property_name %></td>
+    <td><%= estate.rent %></td>
+    <td><%= estate.address %></td>
+    <td><%= estate.property_age %></td>
+    <td><%= estate.content %></td>
+    <td><%= link_to "詳細", estate_path(estate.id) %></td>
+    <td>編集</td>
+    <td>削除</td>
+  </tr>
+  <% end %>
+</table>
