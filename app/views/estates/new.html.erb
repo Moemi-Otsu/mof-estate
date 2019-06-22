@@ -1,17 +1,30 @@
 <h1>物件登録</h1>
 
-<%= form_for(@estate, local: true) do |form| %>
+<%= form_for(@estate, local: true) do |estate| %>
   <dl class="estate_area">
-    <dt><%= form.label :"物件名" %></dt>
-    <dd><%= form.text_field :property_name %></dd>
-    <dt><%= form.label :"賃料" %></dt>
-    <dd><%= form.text_field :rent %></dd>
-    <dt><%= form.label :"住所" %></dt>
-    <dd><%= form.text_field :address %></dd>
-    <dt><%= form.label :"築年数" %></dt>
-    <dd><%= form.text_field :property_age %></dd>
-    <dt><%= form.label :"備考" %></dt>
-    <dd><%= form.text_area :content %></dd>
+    <dt><%= estate.label :"物件名" %></dt>
+    <dd><%= estate.text_field :property_name %></dd>
+    <dt><%= estate.label :"賃料" %></dt>
+    <dd><%= estate.text_field :rent %></dd>
+    <dt><%= estate.label :"住所" %></dt>
+    <dd><%= estate.text_field :address %></dd>
+    <dt><%= estate.label :"築年数" %></dt>
+    <dd><%= estate.text_field :property_age %></dd>
+    <dt><%= estate.label :"備考" %></dt>
+    <dd><%= estate.text_area :content %></dd>
   </dl>
-  <p><%= form.submit '登録する' %></p>
+    <%= estate.fields_for :stations, @estate.stations.build do |station| %>
+      <h2>最寄駅1</h2>
+      <dl class="station_area">
+        <dt><%= station.label :"路線名" %></dt>
+        <dd><%= station.text_field :route_name %></dd>
+        <dt><%= station.label :"駅名" %></dt>
+        <dd><%= station.text_field :station_name %></dd>
+        <dt><%= station.label :"徒歩分数" %></dt>
+        <dd><%= station.text_field :walking_minutes %></dd>
+      </dl>
+    <% end %>
+  <div class="actions">
+    <%= estate.submit '登録する' %>
+  </div>
 <% end %>
