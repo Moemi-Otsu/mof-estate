@@ -15,7 +15,6 @@ class EstatesController < ApplicationController
     if @estate.save
       redirect_to estates_path, notice: "保存しました！"
     else
-      binding.pry
       render 'new', notice: "エラーがあります！"
     end
   end
