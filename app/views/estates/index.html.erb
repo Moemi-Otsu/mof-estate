@@ -15,8 +15,10 @@
     <td><%= estate.property_age %></td>
     <td><%= estate.content %></td>
     <td><%= link_to "詳細", estate_path(estate.id) %></td>
-    <td>編集</td>
+    <td><%= link_to "編集", edit_estate_path(estate.id) %></td>
     <td>削除</td>
   </tr>
   <% end %>
 </table>
+
+<p><%= link_to '物件を登録する', new_estate_path %></p>

@@ -1,0 +1,17 @@
+<h1>物件登録</h1>
+
+<%= form_for(@estate, local: true) do |form| %>
+  <dl class="estate_area">
+    <dt><%= form.label :"物件名" %></dt>
+    <dd><%= form.text_field :property_name %></dd>
+    <dt><%= form.label :"賃料" %></dt>
+    <dd><%= form.text_field :rent %></dd>
+    <dt><%= form.label :"住所" %></dt>
+    <dd><%= form.text_field :address %></dd>
+    <dt><%= form.label :"築年数" %></dt>
+    <dd><%= form.text_field :property_age %></dd>
+    <dt><%= form.label :"備考" %></dt>
+    <dd><%= form.text_area :content %></dd>
+  </dl>
+  <p><%= form.submit '登録する' %></p>
+<% end %>
