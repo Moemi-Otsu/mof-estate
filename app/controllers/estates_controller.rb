@@ -1,4 +1,5 @@
 class EstatesController < ApplicationController
+  before_action :set_estate, only:[:show, :edit, :update, :destroy]
 
   def index
     @estates = Estate.all
@@ -7,7 +8,7 @@ class EstatesController < ApplicationController
 
   def new
     @estate = Estate.new
-    @estate.stations.build
+    2.times { @estate.stations.build }
   end
 
   def create
@@ -20,14 +21,17 @@ class EstatesController < ApplicationController
   end
 
   def show
-    @estate = Estate.find(params[:id])
+    #set_estate
   end
 
   def edit
-    @estate = Estate.find(params[:id])
+    #set_estate
   end
 
   def destroy
+    #set_estate
+    @estate.destroy
+    redirect_to estates_path, notice:"ブログを削除しました！"
   end
 
   private
@@ -36,6 +40,10 @@ class EstatesController < ApplicationController
     # ネスト化前の情報が取れているコード
     #params.require(:estate).permit(:property_name, :rent, :address, :property_age, :content)
     params.require(:estate).permit(:property_name, :rent, :address, :property_age, :content, stations_attributes: [:route_name, :station_name, :walking_minutes])
+  end
+
+  def set_estate
+    @estate = Estate.find(params[:id])
   end
 
 end

@@ -10,18 +10,13 @@
   <% @estates.each do |estate| %>
   <tr>
     <td><%= estate.property_name %></td>
-    <td><%= estate.rent %></td>
+    <td><%= number_with_delimiter(estate.rent) %>円</td>
     <td><%= estate.address %></td>
-    <td><%= estate.property_age %></td>
+    <td><%= estate.property_age %>年</td>
     <td><%= estate.content %></td>
     <td><%= link_to "詳細", estate_path(estate.id) %></td>
     <td><%= link_to "編集", edit_estate_path(estate.id) %></td>
-    <td>削除</td>
-    <% @stations.each do |station| %>
-    <td><%= station.route_name %></td>
-    <td><%= station.station_name %></td>
-    <td><%= station.walking_minutes %></td>
-    <% end %>
+    <td><%= link_to "削除", estate_path(estate.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 </table>
 <% end %>

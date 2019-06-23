@@ -1,25 +1,3 @@
 <h1>物件編集</h1>
 
-<%= form_for(@estate) do |form| %>
-  <div class="station">
-    <%= form.label :"物件名" %>
-    <%= form.text_field :property_name %>
-  </div>
-  <div class="station">
-    <%= form.label :"賃料" %>
-    <%= form.text_field :rent %>
-  </div>
-  <div class="station">
-    <%= form.label :"住所" %>
-    <%= form.text_field :address %>
-  </div>
-  <div class="station">
-    <%= form.label :"築年数" %>
-    <%= form.text_field :property_age %>
-  </div>
-  <div class="station">
-    <%= form.label :"備考" %>
-    <%= form.text_field :content %>
-  </div>
-  <%= form.submit %>
-<% end %>
+<%= render 'form' %>

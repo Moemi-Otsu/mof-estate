@@ -1,36 +1,28 @@
-<h1>show</h1>
-<table>
-  <tr>
-    <th>物件名</th>
-    <th>賃料</th>
-    <th>住所</th>
-    <th>築年数</th>
-    <th>備考</th>
-  </tr>
-  <tr>
-    <td><%= @estate.property_name %></td>
-    <td><%= @estate.rent %></td>
-    <td><%= @estate.address %></td>
-    <td><%= @estate.property_age %></td>
-    <td><%= @estate.content %></td>
-    <td>詳細</td>
-    <td>編集</td>
-    <td>削除</td>
-  </tr>
-</table>
+<h1>物件情報</h1>
+<dl>
+  <dt>物件名</dt>
+  <dd><%= @estate.property_name %></dd>
+  <dt>賃料</dt>
+  <dd><%= @estate.rent %></dd>
+  <dt>住所</dt>
+  <dd><%= @estate.address %></dd>
+  <dt>築年数</dt>
+  <dd><%= @estate.property_age %></dd>
+  <dt>備考</dt>
+  <dd><%= @estate.content %></dd>
+</dl>
 
-<% @station.each do |station| %>
 <h2>最寄駅</h2>
-<table>
-  <tr>
-    <th>路線名</th>
-    <th>駅名</th>
-    <th>徒歩分数</th>
-  </tr>
-  <tr>
-    <td><%= station.route_name %></td>
-    <td><%= station.station_name %></td>
-    <td>徒歩<%= station.walking_minutes %>分</td>
-  </tr>
-</table>
-<% end %>
+<dl>
+  <dt>路線名</dt>
+  <dd><%= @estate.stations.first.route_name %></dd>
+  <dt>駅名</dt>
+  <dd><%= @estate.stations.first.station_name %></dd>
+  <dt>徒歩分数</dt>
+  <dd>徒歩<%= @estate.stations.first.walking_minutes %>分</dd>
+</dl>
+
+<div class="actions">
+<%= link_to '編集', edit_estate_path %>
+<%= link_to '戻る', estates_path %>
+</div>

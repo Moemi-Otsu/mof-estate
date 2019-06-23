@@ -1,5 +1,3 @@
-<h1>物件登録</h1>
-
 <%= form_for(@estate, local: true) do |estate| %>
   <% if @estate.errors.any? %>
     <div id="error_explanation">
@@ -25,7 +23,7 @@
     <dt><%= estate.label :"備考" %></dt>
     <dd><%= estate.text_area :content %></dd>
   </dl>
-    <%= estate.fields_for :stations, @estate.stations.build do |station| %>
+    <%= estate.fields_for :stations, @estate.stations do |station| %>
       <h2>最寄駅</h2>
       <dl class="station_area">
         <dt><%= station.label :"路線名" %></dt>
