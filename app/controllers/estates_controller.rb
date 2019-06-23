@@ -28,6 +28,15 @@ class EstatesController < ApplicationController
     #set_estate
   end
 
+  def update
+    #set_estate
+    if @estate.update(estate_params)
+      redirect_to estates_path, notice: "更新しました。"
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     #set_estate
     @estate.destroy

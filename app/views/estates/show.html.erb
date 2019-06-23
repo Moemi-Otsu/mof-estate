@@ -12,15 +12,17 @@
   <dd><%= @estate.content %></dd>
 </dl>
 
-<h2>最寄駅</h2>
-<dl>
-  <dt>路線名</dt>
-  <dd><%= @estate.stations.first.route_name %></dd>
-  <dt>駅名</dt>
-  <dd><%= @estate.stations.first.station_name %></dd>
-  <dt>徒歩分数</dt>
-  <dd>徒歩<%= @estate.stations.first.walking_minutes %>分</dd>
-</dl>
+<% @estate.stations.each_with_index do |item, i| %>
+  <h2>最寄駅<%= "#{i+1}" %></h2>
+  <dl>
+    <dt>路線名</dt>
+    <dd><%= item.route_name %></dd>
+    <dt>駅名</dt>
+    <dd><%= item.station_name %></dd>
+    <dt>徒歩分数</dt>
+    <dd>徒歩<%= item.walking_minutes %>分</dd>
+  </dl>
+<% end %>
 
 <div class="actions">
 <%= link_to '編集', edit_estate_path %>

@@ -23,17 +23,9 @@
     <dt><%= estate.label :"備考" %></dt>
     <dd><%= estate.text_area :content %></dd>
   </dl>
-    <%= estate.fields_for :stations, @estate.stations do |station| %>
-      <h2>最寄駅</h2>
-      <dl class="station_area">
-        <dt><%= station.label :"路線名" %></dt>
-        <dd><%= station.text_field :route_name %></dd>
-        <dt><%= station.label :"駅名" %></dt>
-        <dd><%= station.text_field :station_name %></dd>
-        <dt><%= station.label :"徒歩分数" %></dt>
-        <dd><%= station.text_field :walking_minutes %></dd>
-      </dl>
-      <h2>最寄駅</h2>
+
+    <%= estate.fields_for :stations, @estate.stations.each do |station| %>
+      <h2>最寄駅<%= station.index + 1 %></h2>
       <dl class="station_area">
         <dt><%= station.label :"路線名" %></dt>
         <dd><%= station.text_field :route_name %></dd>
@@ -43,8 +35,10 @@
         <dd><%= station.text_field :walking_minutes %></dd>
       </dl>
     <% end %>
+
   <div class="actions">
     <%= estate.submit '登録する' %>
   </div>
 <% end %>
+
 <%= link_to '戻る', estates_path %>
