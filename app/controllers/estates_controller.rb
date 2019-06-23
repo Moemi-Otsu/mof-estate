@@ -46,8 +46,6 @@ class EstatesController < ApplicationController
   private
 
   def estate_params
-    # ネスト化前の情報が取れているコード
-    #params.require(:estate).permit(:property_name, :rent, :address, :property_age, :content)
     params.require(:estate).permit(:property_name, :rent, :address, :property_age, :content, stations_attributes: [:route_name, :station_name, :walking_minutes])
   end
 
