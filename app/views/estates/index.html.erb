@@ -18,7 +18,7 @@
     <td><%= link_to "編集", edit_estate_path(estate.id) %></td>
     <td><%= link_to "削除", estate_path(estate.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
-</table>
 <% end %>
+</table>
 
 <p><%= link_to '物件を登録する', new_estate_path %></p>
