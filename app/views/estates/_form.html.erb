@@ -15,11 +15,11 @@
     <dt><%= estate.label :"物件名" %></dt>
     <dd><%= estate.text_field :property_name %></dd>
     <dt><%= estate.label :"賃料" %></dt>
-    <dd><%= estate.text_field :rent %></dd>
+    <dd><%= estate.number_field :rent %></dd>
     <dt><%= estate.label :"住所" %></dt>
     <dd><%= estate.text_field :address %></dd>
     <dt><%= estate.label :"築年数" %></dt>
-    <dd><%= estate.text_field :property_age %></dd>
+    <dd><%= estate.number_field :property_age %></dd>
     <dt><%= estate.label :"備考" %></dt>
     <dd><%= estate.text_area :content %></dd>
   </dl>
@@ -32,7 +32,7 @@
         <dt><%= station.label :"駅名" %></dt>
         <dd><%= station.text_field :station_name %></dd>
         <dt><%= station.label :"徒歩分数" %></dt>
-        <dd><%= station.text_field :walking_minutes %></dd>
+        <dd><%= station.number_field :walking_minutes %></dd>
       </dl>
     <% end %>
 
