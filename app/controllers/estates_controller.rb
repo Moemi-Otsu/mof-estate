@@ -9,10 +9,11 @@ class EstatesController < ApplicationController
   def new
     @estate = Estate.new
     2.times { @estate.stations.build }
+
   end
 
   def create
-    @estate = Estate.new(estate_params)
+    @estate = Estate.new(estate_params_new)
     if @estate.save
       redirect_to estates_path, notice: "保存しました！"
     else
@@ -25,6 +26,8 @@ class EstatesController < ApplicationController
   end
 
   def edit
+    # (Station::FORM - @estate.stations.count).times {@estate.stations.build}
+    @estate.stations.build
     #set_estate
   end
 
@@ -45,8 +48,12 @@ class EstatesController < ApplicationController
 
   private
 
-  def estate_params
+  def estate_params_new
     params.require(:estate).permit(:property_name, :rent, :address, :property_age, :content, stations_attributes: [:route_name, :station_name, :walking_minutes])
+  end
+
+  def estate_params
+    params.require(:estate).permit(:property_name, :rent, :address, :property_age, :content, stations_attributes: [:id, :route_name, :station_name, :walking_minutes])
   end
 
   def set_estate

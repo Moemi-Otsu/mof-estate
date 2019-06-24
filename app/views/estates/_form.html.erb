@@ -24,7 +24,7 @@
     <dd><%= estate.text_area :content %></dd>
   </dl>
 
-    <%= estate.fields_for :stations, @estate.stations.each do |station| %>
+    <%= estate.fields_for :stations do |station| %>
       <h2>最寄駅<%= station.index + 1 %></h2>
       <dl class="station_area">
         <dt><%= station.label :"路線名" %></dt>

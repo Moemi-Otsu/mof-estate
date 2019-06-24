@@ -3,7 +3,7 @@
   <dt>物件名</dt>
   <dd><%= @estate.property_name %></dd>
   <dt>賃料</dt>
-  <dd><%= @estate.rent %></dd>
+  <dd><%= number_with_delimiter(@estate.rent) %></dd>
   <dt>住所</dt>
   <dd><%= @estate.address %></dd>
   <dt>築年数</dt>
