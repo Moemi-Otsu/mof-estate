@@ -18,7 +18,7 @@ class EstatesController < ApplicationController
       redirect_to estates_path, notice: "保存しました！"
     else
       #バリデーションがかかると複数の入力欄が消えてしまうので、再度インスタンスをbuildしている。
-      1.times { @estate.stations.build }
+      @estate.stations.build
       render 'new', notice: "エラーがあります！"
     end
   end
@@ -38,7 +38,7 @@ class EstatesController < ApplicationController
     if @estate.update(estate_params)
       redirect_to estates_path, notice: "更新しました。"
     else
-      1.times { @estate.stations.build }
+      @estate.stations.build
       render 'edit'
     end
   end
